@@ -1,32 +1,32 @@
 function isMatch(a, b){
-	// ±éÀúa£¬ÒÀ´ÎÈ¡bÖĞµÄ¹æÔò½øĞĞÅĞ¶Ï
+	// éå†aï¼Œä¾æ¬¡å–bä¸­çš„è§„åˆ™è¿›è¡Œåˆ¤æ–­
 	
-	var dot = '.';// µã
-	var star = '*';// ĞÇ
-	var chr = '';// ×Ö·û
-	var reg = '';// ¹æÔò
-	var curr = '';// µ±Ç°×Ö·û
+	var dot = '.';// ç‚¹
+	var star = '*';// æ˜Ÿ
+	var chr = '';// å­—ç¬¦
+	var reg = '';// è§„åˆ™
+	var curr = '';// å½“å‰å­—ç¬¦
 	var i = 0,j = 0;
 	
-	var judge = function(a){// Æ¥Åä¹æÔò
+	var judge = function(a){// åŒ¹é…è§„åˆ™
 		if(!a) return false;
-		if(chr == dot) return true;// ÈÎÒâ×Ö·û
-		return a == chr;// µ±Ç°×Ö·û±ØĞëÓë¹æÔò×Ö·ûÏàµÈ
+		if(chr == dot) return true;// ä»»æ„å­—ç¬¦
+		return a == chr;// å½“å‰å­—ç¬¦å¿…é¡»ä¸è§„åˆ™å­—ç¬¦ç›¸ç­‰
 	};
 	
-	while(i < a.length){// ´ıÆ¥Åä×Ö·û´®Ã»ÓĞÆ¥Åä½áÊø
+	while(i < a.length){// å¾…åŒ¹é…å­—ç¬¦ä¸²æ²¡æœ‰åŒ¹é…ç»“æŸ
 		curr = a[i],chr = b[j],reg = b[j+1];
-		if(reg == undefined) break;// bÒÑ¾­×ßµ½Î²
-		if(i == a.length-1) break;// aÒÑ¾­×ßµ½Î²£¬Ö»ĞèÒªÅĞ¶ÏbÊ£ÓàµÄ²¿·ÖÊÇ·ñ¿ÉÒÔÆ¥Åä¿ÕÖµ£¨TODO£©
+		if(reg == undefined) break;// bå·²ç»èµ°åˆ°å°¾
+		if(i == a.length-1) break;// aå·²ç»èµ°åˆ°å°¾ï¼Œåªéœ€è¦åˆ¤æ–­bå‰©ä½™çš„éƒ¨åˆ†æ˜¯å¦å¯ä»¥åŒ¹é…ç©ºå€¼ï¼ˆTODOï¼‰
 		if(reg == star){// * 
-			if(judge(curr)) i++;// Í¨¹ıÑéÖ¤¾ÍÍùÇ°×ß£¬µ«ÊÇ²»ÄÜÔ½½ç
-			else j+=2;// ²»Í¨¹ıÑéÖ¤j+2
-		}else{// ×Ö·û
+			if(judge(curr)) i++;// é€šè¿‡éªŒè¯å°±å¾€å‰èµ°ï¼Œä½†æ˜¯ä¸èƒ½è¶Šç•Œ
+			else j+=2;// ä¸é€šè¿‡éªŒè¯j+2
+		}else{// å­—ç¬¦
 			if(!judge(curr)) break;
 			else i++,j++;
 		}
 	}
-	return i == (a.length-1);// ÅĞ¶ÏÌõ¼şÎªÊÇ·ñ×ßÍêa
+	return i == (a.length-1);// åˆ¤æ–­æ¡ä»¶ä¸ºæ˜¯å¦èµ°å®Œa
 }
 
 console.log(isMatch("aa","a"))
@@ -35,6 +35,6 @@ console.log(isMatch("aaa","aa"))
 console.log(isMatch("aa", "a*"))
 console.log(isMatch("aa", ".*"))
 console.log(isMatch("ab", ".*"))
-// TODO jÒª×ßÍê
+// TODO jè¦èµ°å®Œ
 console.log(isMatch("aab", "c*d*a*bd*d"))
 
